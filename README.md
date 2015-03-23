@@ -1,3 +1,2 @@
-# hercules
-Learn Sparql with Hercules!
+# Learn Sparql with Hercules!
 http://ddtxra.github.io/hercules/

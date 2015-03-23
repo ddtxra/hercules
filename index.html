@@ -14,23 +14,23 @@
 <div class="row" style="margin:50px">
   <div class="col-xs-6">
     <h2>Sparql Query</h2>
+    <h5>Give me all rats with weight higher than 250</h5>
     <textarea id="sparqlEditor" name="code">
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX m: <http://xpto.com/measurement/0.1/>
 SELECT ?name ?mbox
 WHERE  {
-  ?x foaf:name ?name .
-  ?x foaf:mbox ?mbox .
+  ?x m:name ?name .
+  ?x m:weight ?mbox .
 }
     </textarea>
   </div>
   <div class="col-xs-6">
     <h2>Turtle Data</h2>
     <textarea id="turtleEditor" name="tripletEditor">@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-_:a  foaf:name   "Johnny Lee Outlaw" .
-_:a  foaf:mbox   <mailto:jlow@example.com> .
-_:b  foaf:name   "Peter Goodguy" .
-_:b  foaf:mbox   <mailto:peter@example.org> .
-_:c  foaf:mbox   <mailto:carol@example.org> .
+_:a  m:name   "Johnny Lee Outlaw" .
+_:a  m:weight  250.
+_:b  m:name   "Peter Goodguy" .
+_:b  m:weight  300 .
     </textarea>
   </div>
   <button style="margin:10px" id="start" type="button" class="btn btn-default btn-lg btn-primary">

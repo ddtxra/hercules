@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $("#start").click(function() {
 
-    try {
+    //try {
       var turtleParser = new Arielworks.Parser.RecursiveDescentParser.Parser();
       turtleParser.setRuleSet(Arielworks.Hercules.Serialized.Turtle.Parser.RULE_SET);
       turtleParser.setWhiteSpaceRule(Arielworks.Hercules.Serialized.Turtle.Parser.WHITE_SPACE_RULE);
@@ -46,8 +46,8 @@ $(document).ready(function(){
 
         }
       }
-    }catch(err) {
+    /*}catch(err) {
       alert(err);
-    }
+    }*/
   });
 });

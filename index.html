@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Hercules </title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="app.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="codemirror/lib/codemirror.js"></script>
+<script src="codemirror/mode/sparql/sparql.js"></script>
+<script src="codemirror/mode/turtle/turtle.js"></script>
+<script src="hercules/hercules.js"></script>
+<script src="app.js"></script>
+<div class="row" style="margin:50px">
+  <div class="col-xs-6">
+    <h2>Sparql Query</h2>
+    <textarea id="sparqlEditor" name="code">
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?name ?mbox
+WHERE  {
+  ?x foaf:name ?name .
+  ?x foaf:mbox ?mbox .
+}
+    </textarea>
+  </div>
+  <div class="col-xs-6">
+    <h2>Turtle Data</h2>
+    <textarea id="turtleEditor" name="tripletEditor">@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+_:a  foaf:name   "Johnny Lee Outlaw" .
+_:a  foaf:mbox   <mailto:jlow@example.com> .
+_:b  foaf:name   "Peter Goodguy" .
+_:b  foaf:mbox   <mailto:peter@example.org> .
+_:c  foaf:mbox   <mailto:carol@example.org> .
+    </textarea>
+  </div>
+  <button style="margin:10px" id="start" type="button" class="btn btn-default btn-lg btn-primary">
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Run your query
+  </button>
+  <table class="table table-striped" id="result">
+    <thead id="result_head"/>
+    <tbody id="result_body"/>
+  </table>
+
+</div>
+
+<script>
+var sparqlEditor = CodeMirror.fromTextArea(document.getElementById("sparqlEditor"), {
+  mode: "application/sparql-query",
+  lineNumbers: true
+});
+
+var turtleEditor = CodeMirror.fromTextArea(document.getElementById("turtleEditor"), {
+  mode: "text/turtle",
+  lineNumbers: true
+});
+</script>
+
+
+</div>
+</html>
